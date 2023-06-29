@@ -1,6 +1,6 @@
 ## URL Shortener
 
-![Snapsot about URL Shortener](./public/image/snapshot01.jpg)
+![Snapsot about URL Shortener](https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css)
 
 ### 功能
 
