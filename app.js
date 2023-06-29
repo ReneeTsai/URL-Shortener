@@ -57,6 +57,7 @@ app.post("/", (req, res) => {
   const name = req.body.name;
   let address = "";
   Todo.findOne({ name: name }).then((todo) => {
+    //例外處理:輸入相同網址時，產生一樣的縮址。
     if (todo !== null) {
       console.log(todo.address, todo.name);
       res.render("index", { address: todo.address, name: todo.name });
