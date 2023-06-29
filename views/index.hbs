@@ -1,0 +1,15 @@
+<form action="/" method="POST">
+  <input type="text" placeholder="Input URL here..." name="name" />
+  <button type="submit" class="btn btn-info btn-sm">Shorten</button>
+</form>
+
+{{#if address}}
+  <div>
+    <h3>Success! Please use this link:</h3>
+    <code>http://localhost:3000/{{address}}</code>
+  </div>
+{{/if}}
+
+{{#if error}}
+  <code>{{error}}</code>
+{{/if}}
