@@ -57,7 +57,6 @@ app.post("/", (req, res) => {
   const name = req.body.name;
   let address = "";
   URL.findOne({ name: name }).then((url) => {
-    //例外處理:輸入相同網址時，產生一樣的縮址。
     if (url !== null) {
       console.log(url.address, url.name);
       res.render("index", { address: url.address, name: url.name });

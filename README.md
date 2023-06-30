@@ -1,7 +1,5 @@
 ## URL Shortener
 
-![Snapsot about URL Shortener](./public/image/snapshot01.jpg)
-
 ### 功能
 
 - 輸入網址以獲得短網址
