@@ -2,7 +2,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const Todo = require("./models/todo");
+const URL = require("./models/url");
 const exphbs = require("express-handlebars");
 const generatePassword = require("./addressShortener");
 
@@ -36,11 +36,11 @@ app.get("/:address", (req, res) => {
   const inputAddress = req.params.address;
 
   if (inputAddress) {
-    return Todo.findOne({ address: inputAddress }).then((todo) => {
-      // console.log("addressShortener", todo);
+    return URL.findOne({ address: inputAddress }).then((url) => {
+      // console.log("addressShortener", url);
 
-      if (todo != null) {
-        res.redirect(todo.name);
+      if (url != null) {
+        res.redirect(url.name);
       } else {
         res.redirect("/");
       }
@@ -56,15 +56,15 @@ app.post("/", (req, res) => {
 
   const name = req.body.name;
   let address = "";
-  Todo.findOne({ name: name }).then((todo) => {
+  URL.findOne({ name: name }).then((url) => {
     //例外處理:輸入相同網址時，產生一樣的縮址。
-    if (todo !== null) {
-      console.log(todo.address, todo.name);
-      res.render("index", { address: todo.address, name: todo.name });
+    if (url !== null) {
+      console.log(url.address, url.name);
+      res.render("index", { address: url.address, name: url.name });
     } else {
       address = generatePassword();
       console.log("success", address);
-      return Todo.create({ address, name })
+      return URL.create({ address, name })
         .then(() => {
           res.render("index", { address: address, name: name });
         })
